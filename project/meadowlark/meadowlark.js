@@ -1,12 +1,10 @@
 const express = require('express')
-const expressHandlebars = require('express-handlebars')
+const expressEjsLayouts = require('express-ejs-layouts')
 const app = express()
 
-// configure Handlebars view engine
-app.engine('handlebars', expressHandlebars({
-  defaultLayout: 'main',
-}))
-app.set('view engine', 'handlebars')
+// configure EJS view engine
+app.use(expressEjsLayouts)
+app.set('view engine', 'ejs')
 
 app.use(express.static(__dirname + '/public'))
 
